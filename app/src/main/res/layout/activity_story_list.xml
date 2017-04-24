@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.tanner.repo.ui.viewmodel.MainViewModel" />
+            type="com.tanner.repo.ui.viewmodel.StoryListViewModel" />
 
     </data>
 

@@ -2,7 +2,7 @@ package com.tanner.repo.di.component;
 
 import com.tanner.repo.MyApplication;
 import com.tanner.repo.di.module.AppModule;
-import com.tanner.repo.ui.model.MainModel;
+import com.tanner.repo.ui.model.StoryListModel;
 import com.tanner.repo.ui.model.StoryModel;
 
 import javax.inject.Singleton;
@@ -17,5 +17,5 @@ public interface AppComponent {
 
     void inject(StoryModel service);
 
-    void inject(MainModel service);
+    void inject(StoryListModel service);
 }

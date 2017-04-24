@@ -1,13 +1,13 @@
 package com.tanner.repo.di.component;
 
 
-import com.tanner.repo.di.module.MainModule;
+import com.tanner.repo.di.module.StoryListModule;
 import com.tanner.repo.ui.activity.StoryListActivity;
 
 import dagger.Component;
 
-@Component(modules = MainModule.class)
-public interface MainComponent {
+@Component(modules = StoryListModule.class)
+public interface StoryListComponent {
 
     void inject(StoryListActivity activity);
 

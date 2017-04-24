@@ -2,24 +2,24 @@ package com.tanner.repo.di.module;
 
 import android.content.Context;
 
-import com.tanner.repo.ui.model.MainModel;
-import com.tanner.repo.ui.viewmodel.MainViewModel;
+import com.tanner.repo.ui.model.StoryListModel;
+import com.tanner.repo.ui.viewmodel.StoryListViewModel;
 
 import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class MainModule {
+public class StoryListModule {
 
     private Context context;
 
-    public MainModule(Context context) {
+    public StoryListModule(Context context) {
         this.context = context.getApplicationContext();
     }
 
     @Provides
-    MainViewModel provideViewModel() {
-        return new MainViewModel(context, new MainModel(context));
+    StoryListViewModel provideViewModel() {
+        return new StoryListViewModel(context, new StoryListModel(context));
     }
 
     @Provides

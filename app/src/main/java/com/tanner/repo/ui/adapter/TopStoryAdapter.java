@@ -1,4 +1,4 @@
-package com.tanner.repo.ui.adapter.page;
+package com.tanner.repo.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

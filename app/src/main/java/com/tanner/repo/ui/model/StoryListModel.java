@@ -8,7 +8,7 @@ import com.tanner.repo.domain.entity.Daily;
 import com.tanner.repo.domain.entity.StorySection;
 import com.tanner.repo.domain.service.DailyService;
 import com.tanner.repo.domain.service.StoryService;
-import com.tanner.repo.ui.view.MainView;
+import com.tanner.repo.ui.view.StoryListView;
 import com.tanner.repo.ui.view.RequestView;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class MainModel {
+public class StoryListModel {
 
     private int lastDatetime = 0;
     private List<BaseEntity> data = new ArrayList<>();
@@ -35,14 +35,14 @@ public class MainModel {
     StoryService storyService;
 
     @Inject
-    public MainModel(Context context) {
+    public StoryListModel(Context context) {
         MyApplication.from(context).getAppComponent().inject(this);
     }
 
-    private MainView view;
+    private StoryListView view;
     private RequestView requestView;
 
-    public void setView(MainView view, RequestView<BaseEntity> requestView) {
+    public void setView(StoryListView view, RequestView<BaseEntity> requestView) {
         this.view = view;
         this.requestView = requestView;
     }

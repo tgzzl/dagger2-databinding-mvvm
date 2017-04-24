@@ -5,14 +5,16 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 
+import com.liuguangqiang.support.widgets.DividerItemDecoration;
 import com.tanner.repo.R;
 import com.tanner.repo.databinding.ActivityStoryListBinding;
-import com.tanner.repo.di.component.DaggerMainComponent;
-import com.tanner.repo.di.module.MainModule;
+import com.tanner.repo.di.component.DaggerStoryListComponent;
+import com.tanner.repo.di.module.StoryListModule;
 import com.tanner.repo.domain.entity.Story;
-import com.tanner.repo.ui.adapter.page.TopStoryAdapter;
-import com.tanner.repo.ui.viewmodel.MainViewModel;
+import com.tanner.repo.ui.adapter.TopStoryAdapter;
+import com.tanner.repo.ui.viewmodel.StoryListViewModel;
 import com.tanner.repo.util.events.TopStoriesEvent;
 
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class StoryListActivity extends BaseActivity {
     private List<Story> topStories = new ArrayList<>();
 
     @Inject
-    MainViewModel mainViewModel;
+    StoryListViewModel storyListViewModel;
 
     ActivityStoryListBinding binding;
 
@@ -55,13 +57,13 @@ public class StoryListActivity extends BaseActivity {
 
     @Override
     public void onCreateBinding() {
-        DaggerMainComponent
+        DaggerStoryListComponent
                 .builder()
-                .mainModule(new MainModule(this))
+                .storyListModule(new StoryListModule(this))
                 .build().inject(this);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_story_list);
-        binding.setViewModel(mainViewModel);
+        binding.setViewModel(storyListViewModel);
     }
 
     private void initToolbar() {
@@ -76,6 +78,8 @@ public class StoryListActivity extends BaseActivity {
     }
 
     private void initViews() {
+        binding.rvNews.addItemDecoration(new DividerItemDecoration(this, android.R.drawable.divider_horizontal_textfield));
+
         topStoryAdapter = new TopStoryAdapter(getSupportFragmentManager(), topStories);
 
         binding.viewPager.setAdapter(topStoryAdapter);
